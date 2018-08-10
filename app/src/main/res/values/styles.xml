@@ -9,15 +9,16 @@
         <item name="android:textColorPrimary">@color/colorPrimaryTextDefaultMaterialLight</item>
         <item name="android:textColorSecondary">@color/colorSecondaryTextDefaultMaterialLight</item>
         <item name="colorControlHighlight">@color/colorShadow</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/colorPrimaryDark
+        </item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o">true</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/colorPrimaryDark
-        </item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
