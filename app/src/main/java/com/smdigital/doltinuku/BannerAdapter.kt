@@ -1,0 +1,42 @@
+package com.smdigital.doltinuku
+
+import android.content.Context
+import android.support.v4.view.PagerAdapter
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import kotlinx.android.synthetic.main.item_banner.view.*
+
+class BannerAdapter : PagerAdapter {
+
+    private var bannerModels: List<BannerModel>
+    private var inflater: LayoutInflater
+    private var listener: CustomItemClickListener
+
+    constructor(con: Context?, banner: List<BannerModel>, listener: CustomItemClickListener) {
+        this.bannerModels = banner
+        this.listener = listener
+        inflater = LayoutInflater.from(con)
+    }
+
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        container.removeView(`object` as View)
+    }
+
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val view: View = inflater.inflate(R.layout.item_banner, container, false)
+        view.image_full.setImageResource(bannerModels[position].res)
+        view.image_full.setOnClickListener { v -> listener.onItemClick(v, bannerModels[position].id) }
+        container.addView(view, 0)
+        return view
+    }
+
+    override fun isViewFromObject(view: View, `object`: Any): Boolean {
+        return view == `object`
+    }
+
+    override fun getCount(): Int {
+        return bannerModels.size
+    }
+
+}
