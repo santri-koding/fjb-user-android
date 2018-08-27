@@ -10,6 +10,9 @@ import com.smdigital.doltinuku.fragment.FeedFragment
 import com.smdigital.doltinuku.fragment.HomeFragment
 import com.smdigital.doltinuku.fragment.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import android.support.design.widget.CoordinatorLayout
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
         }
-        false
+        true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

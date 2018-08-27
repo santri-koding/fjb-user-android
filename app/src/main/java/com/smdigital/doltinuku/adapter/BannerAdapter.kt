@@ -1,10 +1,13 @@
-package com.smdigital.doltinuku
+package com.smdigital.doltinuku.adapter
 
 import android.content.Context
 import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.smdigital.doltinuku.CustomItemClickListener
+import com.smdigital.doltinuku.R
+import com.smdigital.doltinuku.model.BannerModel
 import kotlinx.android.synthetic.main.item_banner.view.*
 
 class BannerAdapter : PagerAdapter {
