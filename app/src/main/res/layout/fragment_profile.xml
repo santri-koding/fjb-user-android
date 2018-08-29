@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorComponen"
     tools:context=".fragment.ProfileFragment">
 
     <android.support.v4.widget.NestedScrollView
@@ -23,6 +24,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:textColor="@color/colorWindowBackground"
                 android:text="Anda belum login."
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="16dp"
+                android:textColor="@color/colorSection"
                 android:text="Silahkan masuk dengan akun doltinuku untuk dapat menggunakan berbagai fitur menarik."
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -42,7 +45,7 @@
 
             <Button
                 android:id="@+id/button4"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -58,7 +61,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="Masuk"
-                android:textColor="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/button4" />
 

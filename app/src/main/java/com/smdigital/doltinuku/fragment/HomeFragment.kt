@@ -61,21 +61,25 @@ class HomeFragment : Fragment() {
 
         recyCat?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         recyCat?.isNestedScrollingEnabled = false
+        recyCat?.setHasFixedSize(true)
 
         recyPm?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         recyPm?.isNestedScrollingEnabled = false
+        recyPm?.setHasFixedSize(true)
 
         recyLm?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         recyLm?.isNestedScrollingEnabled = false
+        recyLm?.setHasFixedSize(true)
 
         recyPop?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         recyPop?.isNestedScrollingEnabled = false
+        recyPop?.setHasFixedSize(true)
 
-        val startSnapHelper = StartSnapHelper()
-        startSnapHelper.attachToRecyclerView(recyCat)
-        startSnapHelper.attachToRecyclerView(recyPm)
-        startSnapHelper.attachToRecyclerView(recyLm)
-        startSnapHelper.attachToRecyclerView(recyPop)
+        StartSnapHelper().attachToRecyclerView(recyPop)
+        StartSnapHelper().attachToRecyclerView(recyCat)
+        StartSnapHelper().attachToRecyclerView(recyPm)
+        StartSnapHelper().attachToRecyclerView(recyLm)
+
         autoSwipeBanner()
         setIndicator()
         allCategory()
