@@ -10,8 +10,6 @@ import com.smdigital.doltinuku.fragment.FeedFragment
 import com.smdigital.doltinuku.fragment.HomeFragment
 import com.smdigital.doltinuku.fragment.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import android.support.design.widget.CoordinatorLayout
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,14 +40,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
-        beginTransaction().func().commit()
+        beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right).func().commit()
     }
 
-    private fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int){
+    private fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int) {
         supportFragmentManager.inTransaction { add(frameId, fragment) }
     }
 
     private fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
-        supportFragmentManager.inTransaction{replace(frameId, fragment)}
+        supportFragmentManager.inTransaction { replace(frameId, fragment) }
     }
 }

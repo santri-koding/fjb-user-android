@@ -129,48 +129,48 @@ class HomeFragment : Fragment() {
     private fun itemPromo() {
         val allItemPromoHemat = ArrayList<ProductModel>()
 
-        allItemPromoHemat.add(ProductModel(R.drawable.a1, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.e1, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.r2, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.f5, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.e4, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.o4, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.c5, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.a2, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.c3, "Jam tangan", "Rp2.3Juta"))
-        allItemPromoHemat.add(ProductModel(R.drawable.a4, "Jam tangan", "Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.a1, R.drawable.user1, "John doe", "Aksesoris 1","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.e1, R.drawable.user1, "John doe", "Elektronik 1","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.r2, R.drawable.user1, "John doe", "Peralatan 2","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.f5, R.drawable.user1, "John doe", "Fashion 5","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.e4, R.drawable.user1, "John doe", "Elektronik 4","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.o4, R.drawable.user1, "John doe", "Otomotif 4","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.c5, R.drawable.user1, "John doe", "Kecantikan 5","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.a2, R.drawable.user1, "John doe", "Aksesoris 2","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.c3, R.drawable.user1, "John doe", "Kecantikan 3","Rp2.3Juta"))
+        allItemPromoHemat.add(ProductModel(R.drawable.a4, R.drawable.user1, "John doe", "Aksesoris 4","Rp2.3Juta"))
         recyPm?.adapter = ProductAdapter(allItemPromoHemat)
     }
 
     private fun itemLarisManis() {
         val allItemLarisManis = ArrayList<ProductModel>()
 
-        allItemLarisManis.add(ProductModel(R.drawable.f4, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.e2, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.r3, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.o2, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.c4, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.r1, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.f1, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.e1, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.c5, "Jam tangan", "Rp2.3Juta"))
-        allItemLarisManis.add(ProductModel(R.drawable.e3, "Jam tangan", "Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.f4, R.drawable.user1, "John doe", "Fashion 4","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.e2, R.drawable.user1, "John doe", "Elektronik 4","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.r3, R.drawable.user1, "John doe", "Peralatan 4","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.o2, R.drawable.user1, "John doe", "Otomotif 4","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.c4, R.drawable.user1, "John doe", "Kecantikan 4","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.r1, R.drawable.user1, "John doe", "Peralatan 4","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.f1, R.drawable.user1, "John doe", "Fashion 1","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.e1, R.drawable.user1, "John doe", "Elektronik 4","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.c5, R.drawable.user1, "John doe", "Kecantikan 4","Rp2.3Juta"))
+        allItemLarisManis.add(ProductModel(R.drawable.e3, R.drawable.user1, "John doe", "Elektronik 4","Rp2.3Juta"))
         recyLm?.adapter = ProductAdapter(allItemLarisManis)
     }
 
     private fun itemPop() {
         val allItemPop = ArrayList<ProductModel>()
 
-        allItemPop.add(ProductModel(R.drawable.f3, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.f2, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.a3, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.a5, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.c2, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.e3, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.r5, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.f1, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.o3, "Jam tangan", "Rp2.3Juta"))
-        allItemPop.add(ProductModel(R.drawable.o1, "Jam tangan", "Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.f3, R.drawable.user1, "John doe", "Fashion 3","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.f2, R.drawable.user1, "John doe", "Fashion 2","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.a3, R.drawable.user1, "John doe", "Aksesoris 3","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.a5, R.drawable.user1, "John doe", "Aksesoris 4","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.c2, R.drawable.user1, "John doe", "Kecantikan 2","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.e3, R.drawable.user1, "John doe", "Elektronik 3","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.r5, R.drawable.user1, "John doe", "Peralatan 5","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.f1, R.drawable.user1, "John doe", "Fashion 1","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.o3, R.drawable.user1, "John doe", "Otomotif 3","Rp2.3Juta"))
+        allItemPop.add(ProductModel(R.drawable.o1, R.drawable.user1, "John doe", "Otomotif 1","Rp2.3Juta"))
         recyPop?.adapter = ProductAdapter(allItemPop)
     }
 
@@ -203,7 +203,7 @@ class HomeFragment : Fragment() {
 
     private fun autoSwipeBanner() {
         val handler = Handler()
-        val Update = Runnable {
+        val update = Runnable {
             var currentPage = pagerView?.currentItem
             if (currentPage == imageItemList.size - 1) {
                 currentPage = -1
@@ -217,7 +217,7 @@ class HomeFragment : Fragment() {
         swipeTimer.schedule(object : TimerTask() {
 
             override fun run() {
-                handler.post(Update)
+                handler.post(update)
             }
         }, 5000, 10000)
     }

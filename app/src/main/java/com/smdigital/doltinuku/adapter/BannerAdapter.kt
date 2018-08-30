@@ -10,17 +10,10 @@ import com.smdigital.doltinuku.R
 import com.smdigital.doltinuku.model.BannerModel
 import kotlinx.android.synthetic.main.item_banner.view.*
 
-class BannerAdapter : PagerAdapter {
+class BannerAdapter(con: Context?, banner: List<BannerModel>, private var listener: CustomItemClickListener) : PagerAdapter() {
 
-    private var bannerModels: List<BannerModel>
-    private var inflater: LayoutInflater
-    private var listener: CustomItemClickListener
-
-    constructor(con: Context?, banner: List<BannerModel>, listener: CustomItemClickListener) {
-        this.bannerModels = banner
-        this.listener = listener
-        inflater = LayoutInflater.from(con)
-    }
+    private var bannerModels: List<BannerModel> = banner
+    private var inflater: LayoutInflater = LayoutInflater.from(con)
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as View)

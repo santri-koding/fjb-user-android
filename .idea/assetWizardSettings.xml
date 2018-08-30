@@ -29,8 +29,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_outline_keyboard_arrow_right" />
-                            <entry key="sourceFile" value="C:\Users\roqia\Downloads\outline-keyboard_arrow_right-24px.svg" />
+                            <entry key="outputName" value="ic_outline_favorite" />
+                            <entry key="sourceFile" value="C:\Users\roqia\Downloads\outline-favorite_border-24px.svg" />
                           </map>
                         </option>
                       </PersistentState>
