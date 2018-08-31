@@ -1,31 +1,39 @@
 package com.smdigital.doltinuku
 
+import android.Manifest.permission.READ_CONTACTS
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
-import android.content.pm.PackageManager
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.app.LoaderManager.LoaderCallbacks
 import android.content.CursorLoader
 import android.content.Loader
+import android.content.pm.PackageManager
 import android.database.Cursor
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat
+import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
+import android.text.SpannableString
 import android.text.TextUtils
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
+import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import android.widget.TextView
-
-import java.util.ArrayList
-import android.Manifest.permission.READ_CONTACTS
-import android.text.SpannableString
-
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.alert_forgot_password.view.*
+import java.util.*
 
 /**
  * A login screen that offers login via email/password.
@@ -55,8 +63,18 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
 
         email_sign_in_button.setOnClickListener { attemptLogin() }
 
-/*        val spannableString = SpannableString("Masuk")
-        spannableString.setSpan()*/
+        val spannableString = SpannableString("Belum punya akun? Yuk Daftar.")
+        spannableString.setSpan(ForegroundColorSpan(ContextCompat.getColor(applicationContext, R.color.colorFill)), 18, 29, 0 )
+        spannableString.setSpan(StyleSpan(Typeface.BOLD), 18, 29, 0)
+        tvToRegister.text = spannableString
+
+        tvForgotPass.setOnClickListener {
+            showForgotPass()
+        }
+
+        tvToRegister.setOnClickListener {
+            Toast.makeText(applicationContext, "Register", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun populateAutoComplete() {
@@ -247,6 +265,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
+    @SuppressLint("StaticFieldLeak")
     inner class UserLoginTask internal constructor(private val mEmail: String, private val mPassword: String) : AsyncTask<Void, Void, Boolean>() {
 
         override fun doInBackground(vararg params: Void): Boolean? {
@@ -299,5 +318,27 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
          * TODO: remove after connecting to a real authentication system.
          */
         private val DUMMY_CREDENTIALS = arrayOf("foo@example.com:hello", "bar@example.com:world")
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home)
+            onBackPressed()
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showForgotPass(){
+        val layoutInflater = LayoutInflater.from(applicationContext)
+        val view = layoutInflater.inflate(R.layout.alert_forgot_password, null)
+        val alertDialog = AlertDialog.Builder(this@LoginActivity)
+        view.etForgotPas.requestFocus()
+        alertDialog.setTitle("Lupa password?")
+                .setView(view).setPositiveButton("KIRIM"){ dialog, _ ->
+                    Toast.makeText(applicationContext, "KEKIRIM", Toast.LENGTH_LONG).show()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("BATAL"){ dialog, which ->
+                    Toast.makeText(applicationContext, "BATAL KIRIM", Toast.LENGTH_LONG).show()
+                    dialog.cancel()
+                }.show()
     }
 }
