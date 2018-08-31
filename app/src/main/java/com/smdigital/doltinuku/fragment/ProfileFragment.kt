@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.smdigital.doltinuku.LoginActivity
 import com.smdigital.doltinuku.R
+import com.smdigital.doltinuku.RegisterActivity
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
@@ -22,6 +23,10 @@ class ProfileFragment : Fragment() {
 
         view.btnMasuk.setOnClickListener {
             startActivity(Intent(activity, LoginActivity::class.java))
+        }
+
+        view.btnDaftar.setOnClickListener {
+            startActivity(Intent(activity, RegisterActivity::class.java))
         }
         return view
     }
