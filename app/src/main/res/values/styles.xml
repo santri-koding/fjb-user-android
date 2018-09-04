@@ -22,7 +22,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ButtonBorder" parent="Widget.AppCompat.Button.Colored"/>
+    <style name="ButtonBorder" parent="Widget.AppCompat.Button.Colored" />
 
     <style name="ButtonBorder.Accent">
         <item name="android:background">@drawable/bg_btn_outline</item>
@@ -48,5 +48,9 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

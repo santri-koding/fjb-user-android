@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailActivity"
+            android:name=".activity.DetailActivity"
             android:label="@string/app_name" />
 
         <meta-data
@@ -35,11 +35,20 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"></activity>
+            android:name=".activity.RegisterActivity"
+            android:label="@string/title_activity_register" />
+        <activity
+            android:name=".activity.PromoActivity"
+            android:label="@string/title_activity_promo"
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smdigital.doltinuku.activity.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.smdigital.doltinuku
+package com.smdigital.doltinuku.activity
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
+import com.smdigital.doltinuku.R
 import com.smdigital.doltinuku.fragment.FeedFragment
 import com.smdigital.doltinuku.fragment.HomeFragment
 import com.smdigital.doltinuku.fragment.ProfileFragment

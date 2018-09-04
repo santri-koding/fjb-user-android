@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.smdigital.doltinuku.LoginActivity
+import com.smdigital.doltinuku.activity.LoginActivity
 import com.smdigital.doltinuku.R
-import com.smdigital.doltinuku.RegisterActivity
+import com.smdigital.doltinuku.activity.RegisterActivity
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
