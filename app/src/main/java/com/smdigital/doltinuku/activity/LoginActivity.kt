@@ -23,6 +23,7 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.SpannableString
 import android.text.TextUtils
+import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.LayoutInflater
@@ -66,8 +67,9 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         email_sign_in_button.setOnClickListener { attemptLogin() }
 
         val spannableString = SpannableString("Belum punya akun? Yuk Daftar.")
-        spannableString.setSpan(ForegroundColorSpan(ContextCompat.getColor(applicationContext, R.color.colorFill)), 18, 29, 0)
+        spannableString.setSpan(ForegroundColorSpan(ContextCompat.getColor(applicationContext, R.color.colorPrimaryTextDefaultMaterialLight)), 18, 29, 0)
         spannableString.setSpan(StyleSpan(Typeface.BOLD), 18, 29, 0)
+        spannableString.setSpan(BackgroundColorSpan(ContextCompat.getColor(applicationContext, R.color.colorAccent)), 18, 29, 0)
         tvToRegister.text = spannableString
 
         tvForgotPass.setOnClickListener {
@@ -332,7 +334,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
     private fun showForgotPass() {
         val layoutInflater = LayoutInflater.from(applicationContext)
         val view = layoutInflater.inflate(R.layout.alert_forgot_password, null)
-        val alertDialog = AlertDialog.Builder(this@LoginActivity)
+        val alertDialog = AlertDialog.Builder(this@LoginActivity, R.style.AlertDialogStyle)
         view.etForgotPas.requestFocus()
         alertDialog.setTitle("Lupa password?")
                 .setView(view).setPositiveButton("KIRIM") { dialog, _ ->
@@ -343,5 +345,10 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
                     Toast.makeText(applicationContext, "BATAL KIRIM", Toast.LENGTH_LONG).show()
                     dialog.cancel()
                 }.show()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.fade_forward, R.anim.slide_out_right)
     }
 }

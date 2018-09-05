@@ -3,7 +3,9 @@ package com.smdigital.doltinuku.activity
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
+
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import android.view.View
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
@@ -56,8 +58,14 @@ class PromoActivity : AppCompatActivity() {
         wvPromo.loadUrl(url)
     }
 
-/*    override fun onBackPressed() {
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home)
+            onBackPressed()
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
         super.onBackPressed()
         overridePendingTransition(R.anim.fade_forward, R.anim.slide_out_right)
-    }*/
+    }
 }

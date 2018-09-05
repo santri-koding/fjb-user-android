@@ -23,6 +23,14 @@ import android.widget.TextView
 
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
+import android.content.Intent
+import android.graphics.Typeface
+import android.support.v4.content.ContextCompat
+import android.text.SpannableString
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
+import android.view.MenuItem
 import com.smdigital.doltinuku.R
 
 import kotlinx.android.synthetic.main.activity_register.*
@@ -39,7 +47,10 @@ class RegisterActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        // Set up the login form.
+        setSupportActionBar(toolbarRegister)
+
+        supportActionBar?.title = ""
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         populateAutoComplete()
         password.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
             if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
@@ -50,6 +61,17 @@ class RegisterActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         })
 
         email_sign_in_button.setOnClickListener { attemptLogin() }
+
+        val spannableString = SpannableString("Sudah punya akun? Masuk aja.")
+        spannableString.setSpan(ForegroundColorSpan(ContextCompat.getColor(applicationContext, R.color.colorPrimaryTextDefaultMaterialLight)), 18, 28, 0)
+        spannableString.setSpan(StyleSpan(Typeface.BOLD), 18, 28, 0)
+        spannableString.setSpan(BackgroundColorSpan(ContextCompat.getColor(applicationContext, R.color.colorAccent)), 18, 28, 0)
+        tvToLogin.text = spannableString
+
+        tvToLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 
     private fun populateAutoComplete() {
@@ -69,8 +91,8 @@ class RegisterActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
             Snackbar.make(email, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(android.R.string.ok,
-                            { requestPermissions(arrayOf(READ_CONTACTS), REQUEST_READ_CONTACTS) })
+                    .setAction(android.R.string.ok
+                    ) { requestPermissions(arrayOf(READ_CONTACTS), REQUEST_READ_CONTACTS) }
         } else {
             requestPermissions(arrayOf(READ_CONTACTS), REQUEST_READ_CONTACTS)
         }
@@ -163,30 +185,30 @@ class RegisterActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             val shortAnimTime = resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
 
-            login_form.visibility = if (show) View.GONE else View.VISIBLE
-            login_form.animate()
+            reg_form.visibility = if (show) View.GONE else View.VISIBLE
+            reg_form.animate()
                     .setDuration(shortAnimTime)
                     .alpha((if (show) 0 else 1).toFloat())
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator) {
-                            login_form.visibility = if (show) View.GONE else View.VISIBLE
+                            reg_form.visibility = if (show) View.GONE else View.VISIBLE
                         }
                     })
 
-            login_progress.visibility = if (show) View.VISIBLE else View.GONE
-            login_progress.animate()
+            reg_progress.visibility = if (show) View.VISIBLE else View.GONE
+            reg_progress.animate()
                     .setDuration(shortAnimTime)
                     .alpha((if (show) 1 else 0).toFloat())
                     .setListener(object : AnimatorListenerAdapter() {
                         override fun onAnimationEnd(animation: Animator) {
-                            login_progress.visibility = if (show) View.VISIBLE else View.GONE
+                            reg_progress.visibility = if (show) View.VISIBLE else View.GONE
                         }
                     })
         } else {
             // The ViewPropertyAnimator APIs are not available, so simply show
             // and hide the relevant UI components.
-            login_progress.visibility = if (show) View.VISIBLE else View.GONE
-            login_form.visibility = if (show) View.GONE else View.VISIBLE
+            reg_progress.visibility = if (show) View.VISIBLE else View.GONE
+            reg_form.visibility = if (show) View.GONE else View.VISIBLE
         }
     }
 
@@ -292,5 +314,16 @@ class RegisterActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
          * TODO: remove after connecting to a real authentication system.
          */
         private val DUMMY_CREDENTIALS = arrayOf("foo@example.com:hello", "bar@example.com:world")
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home)
+            onBackPressed()
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.fade_forward, R.anim.slide_out_right)
     }
 }

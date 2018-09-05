@@ -42,13 +42,7 @@
             android:label="@string/title_activity_register" />
         <activity
             android:name=".activity.PromoActivity"
-            android:label="@string/title_activity_promo"
-            android:parentActivityName=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.smdigital.doltinuku.activity.MainActivity" />
-        </activity>
+            android:label="@string/title_activity_promo"/>
     </application>
 
 </manifest>

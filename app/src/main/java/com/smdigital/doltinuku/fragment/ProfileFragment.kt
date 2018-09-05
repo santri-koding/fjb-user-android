@@ -1,5 +1,6 @@
 package com.smdigital.doltinuku.fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -23,10 +24,12 @@ class ProfileFragment : Fragment() {
 
         view.btnMasuk.setOnClickListener {
             startActivity(Intent(activity, LoginActivity::class.java))
+            (context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
         }
 
         view.btnDaftar.setOnClickListener {
             startActivity(Intent(activity, RegisterActivity::class.java))
+            (context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
         }
         return view
     }

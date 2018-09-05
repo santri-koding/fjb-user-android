@@ -26,6 +26,9 @@ import kotlinx.android.synthetic.main.content_fragment_main.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import java.util.*
 import kotlin.collections.ArrayList
+import android.app.Activity
+
+
 
 
 class HomeFragment : Fragment() {
@@ -51,6 +54,7 @@ class HomeFragment : Fragment() {
         imageAdapter = BannerAdapter(context, imageItemList, object : CustomItemClickListener {
             override fun onItemClick(v: View, position: Int) {
                 startActivity(Intent(activity, PromoActivity::class.java))
+                (context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
             }
         })
 
