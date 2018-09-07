@@ -10,6 +10,7 @@
     <color name="colorFill">#4D82CB</color>
     <color name="colorShadow">#bbdefb</color>
     <color name="colorShape">#B6E3FF</color>
+    <color name="colorBgLaunch">#212121</color>
     <color name="colorWindowBackground">#FAFAFA</color>
     <color name="colorPrimaryTextDefaultMaterialLight">#DE000000</color>
     <color name="colorSecondaryTextDefaultMaterialLight">#8A000000</color>

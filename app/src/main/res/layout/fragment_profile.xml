@@ -106,15 +106,14 @@
 
                     <TextView
                         android:id="@+id/textView10"
+                        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/quicksand_medium"
+                        android:fontFamily="@font/quicksand_bold"
                         android:text="Profil"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
                         app:layout_constraintEnd_toStartOf="@+id/imageButton"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -122,12 +121,12 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="24dp"
-                        android:src="@drawable/user2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/user5"
                         app:civ_border_color="@color/colorPrimaryTextDefaultMaterialLight"
-                        app:civ_border_width="3dp"
+                        app:civ_border_width="2dp"
                         app:layout_constraintStart_toStartOf="@+id/textView10"
                         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -135,11 +134,13 @@
                         android:id="@+id/textView12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Abang Juragan"
+                        android:background="@color/colorAccent"
+                        android:text="Saya Juragan"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                         app:layout_constraintStart_toEndOf="@+id/imageView3"
                         app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
@@ -150,81 +151,71 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginTop="16dp"
                         android:background="?android:selectableItemBackground"
-                        android:src="@drawable/ic_outline_settings"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_outline_settings" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="120"
+                        android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+                        android:textSize="32sp"
+                        app:layout_constraintEnd_toStartOf="@+id/textView13"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
                     <TextView
                         android:id="@+id/textView13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="124"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:text="90"
+                        android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
                         android:textSize="32sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageView3"
-                        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                        app:layout_constraintEnd_toStartOf="@+id/textView14"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView11"
+                        app:layout_constraintTop_toTopOf="@+id/textView11" />
 
                     <TextView
                         android:id="@+id/textView14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="Posts"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                        app:layout_constraintEnd_toEndOf="@+id/textView13"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/textView13"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                        android:text="1K"
+                        android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+                        android:textSize="32sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView13"
+                        app:layout_constraintTop_toTopOf="@+id/textView13" />
 
                     <TextView
                         android:id="@+id/textView15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:text="300"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                        android:textSize="32sp"
-                        app:layout_constraintStart_toEndOf="@+id/textView13"
-                        app:layout_constraintTop_toTopOf="@+id/textView13" />
+                        android:text="Likes"
+                        app:layout_constraintStart_toStartOf="@+id/textView11"
+                        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
                     <TextView
                         android:id="@+id/textView16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-
-                        android:layout_marginStart="32dp"
-                        android:text="90"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                        android:textSize="32sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/textView15"
-                        app:layout_constraintTop_toTopOf="@+id/textView15" />
+                        android:text="Posts"
+                        app:layout_constraintStart_toStartOf="@+id/textView13"
+                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
                     <TextView
                         android:id="@+id/textView17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="Likes"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                        app:layout_constraintEnd_toEndOf="@+id/textView15"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/textView15"
-                        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                        android:text="Customer"
+                        app:layout_constraintStart_toStartOf="@+id/textView14"
+                        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Customers"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                        app:layout_constraintEnd_toEndOf="@+id/textView16"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/textView16"
-                        app:layout_constraintTop_toBottomOf="@+id/textView16" />
                 </android.support.constraint.ConstraintLayout>
 
             </LinearLayout>
