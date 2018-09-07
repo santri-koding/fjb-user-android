@@ -341,7 +341,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
                     Toast.makeText(applicationContext, "KEKIRIM", Toast.LENGTH_LONG).show()
                     dialog.dismiss()
                 }
-                .setNegativeButton("BATAL") { dialog, which ->
+                .setNegativeButton("BATAL") { dialog, _ ->
                     Toast.makeText(applicationContext, "BATAL KIRIM", Toast.LENGTH_LONG).show()
                     dialog.cancel()
                 }.show()
