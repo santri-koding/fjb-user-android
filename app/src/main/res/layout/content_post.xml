@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.PostActivity"
+    tools:showIn="@layout/activity_post">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#616161">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="5dp"
+                android:drawableTop="@drawable/ic_outline_add_to_photos"
+                android:text="Sisipkan gambar"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+        </FrameLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp"
+            android:theme="@style/ThemeAppBase">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama produk/barang" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            android:theme="@style/ThemeAppBase">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Harga"
+                android:inputType="numberDecimal" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            android:theme="@style/ThemeAppBase">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetKategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="Kategori"
+                android:inputType="none" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            android:theme="@style/ThemeAppBase">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Deskripsi/keterangan"
+                android:inputType="textMultiLine" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingEnd="0dp"
+            android:paddingStart="3dp"
+            android:paddingTop="16dp"
+            android:text="Kondisi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BARU" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PERNAH DIPAKAI" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingEnd="0dp"
+            android:paddingStart="3dp"
+            android:paddingTop="16dp"
+            android:text="Lokasi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/tvPickLoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:drawablePadding="3dp"
+            android:drawableStart="@drawable/ic_outline_room"
+            android:paddingBottom="16dp"
+            android:text="Ambil lokasi"
+            android:textColor="@color/colorPrimaryTextDefaultMaterialLight" />
+
+    </LinearLayout>
+</ScrollView>

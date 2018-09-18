@@ -1,5 +1,6 @@
 package com.smdigital.doltinuku.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -19,14 +20,17 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_home -> {
                 replaceFragment(HomeFragment(), R.id.frame)
+                floatingActionButton.hide()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_post -> {
                 replaceFragment(FeedFragment(), R.id.frame)
+                floatingActionButton.hide()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_profile -> {
                 replaceFragment(ProfileFragment(), R.id.frame)
+                floatingActionButton.show()
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -37,6 +41,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         addFragment(HomeFragment(), R.id.frame)
+        floatingActionButton.hide()
+        floatingActionButton.setOnClickListener {
+            startActivity(Intent(this, PostActivity::class.java))
+        }
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 

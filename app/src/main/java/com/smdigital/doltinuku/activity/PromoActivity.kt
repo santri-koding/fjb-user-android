@@ -16,13 +16,14 @@ import kotlinx.android.synthetic.main.activity_promo.*
 
 class PromoActivity : AppCompatActivity() {
 
-    private val url: String = "https://www.suaramerdeka.com/"
-
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_promo)
         setSupportActionBar(toolbar)
+
+        val url = intent.getStringExtra("LINK")
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_outline_close)
 

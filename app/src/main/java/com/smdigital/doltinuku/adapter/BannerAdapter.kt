@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.smdigital.doltinuku.CustomItemClickListener
+import com.smdigital.doltinuku.GlideApp
 import com.smdigital.doltinuku.R
 import com.smdigital.doltinuku.model.BannerModel
 import kotlinx.android.synthetic.main.item_banner.view.*
@@ -21,7 +22,7 @@ class BannerAdapter(con: Context?, banner: List<BannerModel>, private var listen
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view: View = inflater.inflate(R.layout.item_banner, container, false)
-        view.image_full.setImageResource(bannerModels[position].res)
+        GlideApp.with(container.context).load(bannerModels[position].res).into(view.image_full)
         view.image_full.setOnClickListener { v -> listener.onItemClick(v, bannerModels[position].id) }
         container.addView(view, 0)
         return view

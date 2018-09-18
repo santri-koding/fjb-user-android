@@ -4,14 +4,288 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.DetailActivity"
     tools:showIn="@layout/activity_detail">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tvTitleDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPriceDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/colorFill"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDetail" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/quicksand_light"
+            android:text="Dipost pada:"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPriceDetail" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/quicksand"
+            android:text="13/09/2018"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView18"
+            app:layout_constraintStart_toEndOf="@+id/textView18"
+            app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="3dp"
+            android:drawableStart="@drawable/ic_outline_restore"
+            android:text="BARU"
+            android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:drawablePadding="3dp"
+            android:drawableStart="@drawable/ic_outline_remove_red_eye"
+            android:text="123 dilihat"
+            android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+            app:layout_constraintBottom_toBottomOf="@+id/textView20"
+            app:layout_constraintStart_toEndOf="@+id/textView20"
+            app:layout_constraintTop_toTopOf="@+id/textView20" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="DESKRIPSI PRODUK"
+            android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:lineSpacingExtra="5dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="KATEGORI:"
+            android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Elektronik"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="#FFFFFF"
+            android:background="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/textView28"
+            app:layout_constraintStart_toEndOf="@+id/textView28"
+            app:layout_constraintTop_toTopOf="@+id/textView28" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="LOKASI PENJUAL"
+            android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+        <fragment xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/mapSeller"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            map:layout_constraintEnd_toEndOf="parent"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toBottomOf="@+id/textView29"
+            map:cameraZoom="15"
+            map:mapType="normal"
+            map:liteMode="true" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Semarang"
+            android:drawableStart="@drawable/ic_outline_room"
+            android:drawablePadding="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mapSeller" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="PENJUAL"
+            android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civProfile"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/user1"
+            app:civ_border_color="@color/colorPrimaryTextDefaultMaterialLight"
+            app:civ_border_width="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="Siti maria"
+            app:layout_constraintBottom_toTopOf="@+id/textView26"
+            app:layout_constraintStart_toEndOf="@+id/civProfile"
+            app:layout_constraintTop_toTopOf="@+id/civProfile" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/quicksand"
+            android:text="12 Customer"
+            app:layout_constraintBottom_toBottomOf="@+id/civProfile"
+            app:layout_constraintStart_toEndOf="@+id/civProfile" />
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/btn_outline"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:text="Lihat toko"
+            app:layout_constraintBottom_toBottomOf="@+id/civProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView26"
+            app:layout_constraintTop_toTopOf="@+id/civProfile" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:paddingBottom="56dp"
+            android:singleLine="true"
+            android:text="Berkomentar"
+            android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/civProfile" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/info_count"
+            android:gravity="center_vertical"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:text="24"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/textView34"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView34"
+            app:layout_constraintTop_toTopOf="@+id/textView34"
+            app:layout_constraintVertical_bias="0.060000002" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="?android:selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/textView34"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView34"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_outline_add_comment" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.v4.widget.NestedScrollView>

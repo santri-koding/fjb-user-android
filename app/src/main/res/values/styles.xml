@@ -30,14 +30,24 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">16sp</item>
         <item name="android:singleLine">true</item>
-        <item name="android:text">Masuk</item>
+    </style>
+
+    <style name="ButtonBorder.Small" parent="Widget.AppCompat.Button.Small">
+        <item name="android:background">@drawable/bg_btn_outline</item>
+        <item name="android:textColor">@color/colorPrimaryTextDefaultMaterialLight</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:singleLine">true</item>
     </style>
 
     <style name="LaunchTheme" parent="AppTheme.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_launch</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+    </style>
 
+    <style name="DetailTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="ThemeAppBase" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -55,5 +65,27 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FullscreenTheme" parent="AppTheme.NoActionBar">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="ItemCategories">
+        <item name="android:fontFamily">@font/quicksand</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
 
 </resources>
