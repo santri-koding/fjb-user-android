@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/tvFashion"
         style="@style/ItemCategories"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
     <TextView
-        android:id="@+id/textView39"
+        android:id="@+id/tvElektronik"
         style="@style/ItemCategories"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -39,10 +39,10 @@
         android:text="@string/elektronik"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFashion" />
 
     <TextView
-        android:id="@+id/textView40"
+        android:id="@+id/tvOtomotif"
         style="@style/ItemCategories"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -50,10 +50,10 @@
         android:text="@string/otomotif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+        app:layout_constraintTop_toBottomOf="@+id/tvElektronik" />
 
     <TextView
-        android:id="@+id/textView41"
+        android:id="@+id/tvKecantikan"
         style="@style/ItemCategories"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -61,10 +61,10 @@
         android:text="@string/kecantikan_kesehatan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        app:layout_constraintTop_toBottomOf="@+id/tvOtomotif" />
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/tvAksesoris"
         style="@style/ItemCategories"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -72,10 +72,10 @@
         android:text="@string/aksesoris"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+        app:layout_constraintTop_toBottomOf="@+id/tvKecantikan" />
 
     <TextView
-        android:id="@+id/textView43"
+        android:id="@+id/tvPeralatan"
         style="@style/ItemCategories"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
         android:text="@string/peralatan_rumah_tangga"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAksesoris" />
 
 
 </android.support.constraint.ConstraintLayout>

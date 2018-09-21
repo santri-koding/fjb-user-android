@@ -18,7 +18,14 @@
             android:layout_height="150dp"
             android:background="#616161">
 
+            <ImageView
+                android:id="@+id/ivUp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
             <TextView
+                android:id="@+id/tvUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -37,6 +44,7 @@
             android:theme="@style/ThemeAppBase">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetNamaBarang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama produk/barang" />
@@ -49,9 +57,10 @@
             android:theme="@style/ThemeAppBase">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetHarga"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Harga"
+                android:hint="Harga(Rp)"
                 android:inputType="numberDecimal" />
         </android.support.design.widget.TextInputLayout>
 
@@ -78,6 +87,7 @@
             android:theme="@style/ThemeAppBase">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetDes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -106,6 +116,7 @@
                 style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:layout_weight="1"
                 android:text="BARU" />
 

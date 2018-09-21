@@ -1,4 +1,4 @@
-package com.smdigital.doltinuku
+package com.smdigital.doltinuku.helper
 
 import android.support.annotation.Nullable
 import android.support.v7.widget.LinearLayoutManager
