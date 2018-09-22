@@ -47,23 +47,36 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/quicksand_light"
-            android:text="Dipost pada:"
+            android:text="13/09/2018"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvPriceDetail" />
 
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/quicksand"
-            android:text="13/09/2018"
+            android:layout_marginStart="3dp"
+            android:text="."
+            android:textColor="@color/colorBgLaunch"
             android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView18"
             app:layout_constraintStart_toEndOf="@+id/textView18"
             app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/quicksand"
+            android:text="120 dilihat"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
 
         <TextView
             android:id="@+id/textView20"
@@ -84,8 +97,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:drawablePadding="3dp"
-            android:drawableStart="@drawable/ic_outline_remove_red_eye"
-            android:text="123 dilihat"
+            android:drawableStart="@drawable/ic_outline_favorite_border"
+            android:text="23 disukai"
             android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
             app:layout_constraintBottom_toBottomOf="@+id/textView20"
             app:layout_constraintStart_toEndOf="@+id/textView20"

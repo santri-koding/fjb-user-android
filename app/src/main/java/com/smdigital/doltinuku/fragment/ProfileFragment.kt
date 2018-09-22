@@ -21,7 +21,7 @@ class ProfileFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        view?.btnMasuk?.setOnClickListener {
+/*        view?.btnMasuk?.setOnClickListener {
             startActivity(Intent(activity, LoginActivity::class.java))
             (context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
         }
@@ -30,11 +30,11 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(activity, RegisterActivity::class.java))
             (context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
 
-        }
+        }*/
 
         status = "MASUK"
 
-        if (status == "MASUK") {
+/*        if (status == "MASUK") {
             view?.frameProfil?.setBackgroundColor(ContextCompat.getColor(activity!!.applicationContext, R.color.colorWindowBackground))
             view?.hasLogin?.visibility = View.VISIBLE
             view?.notLogin?.visibility = View.GONE
@@ -42,7 +42,7 @@ class ProfileFragment : Fragment() {
             view?.frameProfil?.setBackgroundColor(ContextCompat.getColor(activity!!.applicationContext, R.color.colorComponen))
             view?.notLogin?.visibility = View.VISIBLE
             view?.hasLogin?.visibility = View.GONE
-        }
+        }*/
 
         return view
     }

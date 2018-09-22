@@ -38,23 +38,24 @@
         app:layout_constraintTop_toTopOf="@+id/textView19" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/ibCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:selectableItemBackground"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_outline_phone" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/ibSMS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:background="?android:selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/ibCall"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_outline_textsms" />
 

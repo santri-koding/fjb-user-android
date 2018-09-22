@@ -27,11 +27,10 @@ import java.text.NumberFormat
 import java.util.*
 
 class PostActivity : AppCompatActivity() {
-    private var PLACE_PICKER_REQUEST = 1
+    private var PLACE_PICKER_REQUEST = 2
     private var permissionHelper: PermissionHelper? = null
     private var REQUEST_CAMERA: Int? = 1
     private var SELECT_FILE: Int? = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +73,7 @@ class PostActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PLACE_PICKER_REQUEST) {
-            if (resultCode == RESULT_OK) {
+            if (resultCode == Activity.RESULT_OK) {
                 val place = PlacePicker.getPlace(this, data)
                 val toastMsg = String.format("%s", place.name)
                 tvPickLoc.text = toastMsg
@@ -196,24 +195,17 @@ class PostActivity : AppCompatActivity() {
     }
 
     private fun selectImage() {
-
         val items = arrayOf<CharSequence>("Camera", "Gallery", "Cancel")
-
         val builder = AlertDialog.Builder(this@PostActivity)
         builder.setTitle("Add Image")
-
         builder.setItems(items) { dialogInterface, i ->
             if (items[i] == "Camera") {
-
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(intent, this.REQUEST_CAMERA!!)
-
             } else if (items[i] == "Gallery") {
-
                 val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                 intent.type = "image/*"
                 startActivityForResult(intent, this.SELECT_FILE!!)
-
             } else if (items[i] == "Cancel") {
                 dialogInterface.dismiss()
             }

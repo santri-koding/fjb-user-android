@@ -43,4 +43,14 @@
     <string name="sort_title">Urutkan</string>
     <string name="permission_dialog">Permissions required</string>
     <string name="go_to_permissions_settings">Go to App settings and enable permissions</string>
+    <string name="phone_status">Phone Status:</string>
+    <string name="ringing">RINGING, number:</string>
+    <string name="offhook">OFFHOOK</string>
+    <string name="idle">IDLE</string>
+    <string name="telephony_enabled">Telephony is enabled</string>
+    <string name="telephony_not_enabled">TELEPHONY NOT ENABLED!</string>
+    <string name="failure_permission">Failure to obtain permission!</string>
+    <string name="restarting_app">Restarting app</string>
+    <string name="dial_number">Phone Status: DIALING:</string>
+    <string name="permission_not_granted">PERMISSION NOT GRANTED!</string>
 </resources>
