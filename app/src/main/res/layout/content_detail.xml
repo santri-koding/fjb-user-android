@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <TextView
             android:id="@+id/tvTitleDetail"
             android:layout_width="0dp"
@@ -237,7 +236,7 @@
             app:layout_constraintStart_toEndOf="@+id/civProfile" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnViewStore"
             style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -300,5 +299,4 @@
             app:srcCompat="@drawable/ic_outline_add_comment" />
 
     </android.support.constraint.ConstraintLayout>
-
 </android.support.v4.widget.NestedScrollView>

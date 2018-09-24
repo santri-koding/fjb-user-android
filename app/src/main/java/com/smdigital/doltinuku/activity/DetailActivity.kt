@@ -98,6 +98,11 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
         tvUsername.text = user
         GlideApp.with(this).load(poto).into(civProfile)
 
+        btnViewStore.setOnClickListener {
+            startActivity(Intent(this, StoreActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
+        }
+
         ibCall.setOnClickListener {
             callNumber("082224192959")
         }

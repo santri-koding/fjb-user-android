@@ -1,37 +1,39 @@
 package com.smdigital.doltinuku.fragment
 
+
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.smdigital.doltinuku.R
 import com.smdigital.doltinuku.activity.DetailActivity
-import com.smdigital.doltinuku.adapter.FeedAdapter
+import com.smdigital.doltinuku.adapter.AllCategoriesAdapter
 import com.smdigital.doltinuku.model.ProductModel
-import kotlinx.android.synthetic.main.fragment_feed.view.*
+import kotlinx.android.synthetic.main.fragment_menu_sell.view.*
 
-class FeedFragment : Fragment() {
+class MenuSellFragment : Fragment() {
 
-    private var recyFedd: RecyclerView? = null
+    private var recySell: RecyclerView? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_feed, container, false)
-        recyFedd = view.rvFeed
+        val rootView = inflater.inflate(R.layout.fragment_menu_sell, container, false)
+        // Inflate the layout for this fragment
+        recySell = rootView.recyclerEtalase
 
-        recyFedd?.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        recyFedd?.hasFixedSize()
+        recySell?.layoutManager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
+        recySell?.hasFixedSize()
 
-        itemFeed()
-        return view
+        itemSell()
+        return rootView
     }
 
-    private fun itemFeed() {
+    private fun itemSell() {
         val allItemFeed = ArrayList<ProductModel>()
         allItemFeed.add(ProductModel("https://bit.ly/2O9wTvu", "https://images.pexels.com/users/avatars/312601/dam-t-ng-quan-741.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "The Beatles We Can Work It Out", "Rp 135.000"))
         allItemFeed.add(ProductModel("https://bit.ly/2NqD5iU", "https://images.pexels.com/users/avatars/54196/madison-inouye-175.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "Nanoblock Sagrada Familia", "Rp 224.925"))
@@ -61,7 +63,7 @@ class FeedFragment : Fragment() {
         allItemFeed.add(ProductModel("https://bit.ly/2pwraC0", "https://images.pexels.com/users/avatars/54196/madison-inouye-175.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "Lego Keychain - Sponge Bob", "Rp 100.000"))
         allItemFeed.add(ProductModel("https://bit.ly/2O6o4SX", "https://images.pexels.com/users/avatars/135125/irina-kostenich-733.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "Handuk Merah Putih 30x70", "Rp 10.000"))
         allItemFeed.add(ProductModel("https://bit.ly/2DpXgsE", "https://images.pexels.com/users/avatars/358536/d-van-trung-422.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "Ekstrak Albumin Ikan Gabus", "Rp 100.000"))
-        recyFedd?.adapter = FeedAdapter(allItemFeed) { partItem: ProductModel -> partItemClicked(partItem) }
+        recySell?.adapter = AllCategoriesAdapter(allItemFeed) { partItem: ProductModel -> partItemClicked(partItem) }
     }
 
     private fun partItemClicked(partItem: ProductModel) {

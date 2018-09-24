@@ -1,139 +1,62 @@
 package com.smdigital.doltinuku.fragment
 
+
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.*
-import android.widget.ImageView
-import android.widget.LinearLayout
-import com.smdigital.doltinuku.CustomItemClickListener
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+
 import com.smdigital.doltinuku.R
-import com.smdigital.doltinuku.activity.CategoryActivity
 import com.smdigital.doltinuku.activity.DetailActivity
-import com.smdigital.doltinuku.activity.PromoActivity
-import com.smdigital.doltinuku.adapter.BannerAdapter
-import com.smdigital.doltinuku.adapter.CategoriesAdapter
 import com.smdigital.doltinuku.adapter.ProductAdapter
 import com.smdigital.doltinuku.helper.StartSnapHelper
-import com.smdigital.doltinuku.model.BannerModel
-import com.smdigital.doltinuku.model.CategoriesModel
 import com.smdigital.doltinuku.model.ProductModel
-import kotlinx.android.synthetic.main.content_fragment_main.view.*
-import kotlinx.android.synthetic.main.fragment_home.view.*
-import java.util.*
-import kotlin.collections.ArrayList
+import kotlinx.android.synthetic.main.fragment_menu_profile.view.*
 
+class MenuProfileFragment : Fragment() {
 
-class HomeFragment : Fragment() {
-
-    private var imageAdapter: BannerAdapter? = null
-    private val imageItemList = ArrayList<BannerModel>()
-    private var pagerView: ViewPager? = null
-    private var layIndicator: LinearLayout? = null
-    private var recyCat: RecyclerView? = null
-    private var recySedangRame: RecyclerView? = null
-    private var recyBanyakSuka: RecyclerView? = null
-    private var recyPop: RecyclerView? = null
-    private var dataCount: Int = 0
-
+    private var recyFavSaya: RecyclerView? = null
+    private var recyTerakhirHub: RecyclerView? = null
+    private var recyBarusanKom: RecyclerView? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-        (activity as AppCompatActivity).setSupportActionBar(view.toolbarMain)
-        setDummy()
-        imageAdapter = BannerAdapter(context, imageItemList, object : CustomItemClickListener {
-            override fun onItemClick(v: View, position: Int) {
-                val intent = Intent(activity, PromoActivity::class.java)
-                intent.putExtra("LINK", imageItemList[position].link)
-                startActivity(intent)
-                (context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
-            }
-        })
+        val rootView = inflater.inflate(R.layout.fragment_menu_profile, container, false)
 
-        pagerView = view.viewPager
-        layIndicator = view.indicator
-        recyCat = view.recyclerCat
-        recySedangRame = view.rvRame
-        recyBanyakSuka = view.rvLaris
-        recyPop = view.rvPopuler
-        pagerView?.adapter = imageAdapter
+        recyFavSaya = rootView.rvFavSaya
+        recyTerakhirHub = rootView.rvTerakhirHub
+        recyBarusanKom = rootView.rvBarusanKomen
 
-        recyCat?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        recyCat?.isNestedScrollingEnabled = false
-        recyCat?.hasFixedSize()
+        recyFavSaya?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        recyFavSaya?.isNestedScrollingEnabled = false
+        recyFavSaya?.hasFixedSize()
 
-        recySedangRame?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        recySedangRame?.isNestedScrollingEnabled = false
-        recySedangRame?.hasFixedSize()
+        recyTerakhirHub?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        recyTerakhirHub?.isNestedScrollingEnabled = false
+        recyTerakhirHub?.hasFixedSize()
 
-        recyBanyakSuka?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        recyBanyakSuka?.isNestedScrollingEnabled = false
-        recyBanyakSuka?.hasFixedSize()
+        recyBarusanKom?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        recyBarusanKom?.isNestedScrollingEnabled = false
+        recyBarusanKom?.hasFixedSize()
 
-        recyPop?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        recyPop?.isNestedScrollingEnabled = false
-        recyPop?.hasFixedSize()
+        StartSnapHelper().attachToRecyclerView(recyFavSaya)
+        StartSnapHelper().attachToRecyclerView(recyTerakhirHub)
+        StartSnapHelper().attachToRecyclerView(recyBarusanKom)
 
-        StartSnapHelper().attachToRecyclerView(recyPop)
-        StartSnapHelper().attachToRecyclerView(recyCat)
-        StartSnapHelper().attachToRecyclerView(recySedangRame)
-        StartSnapHelper().attachToRecyclerView(recyBanyakSuka)
-
-        autoSwipeBanner()
-        setIndicator()
-        allCategory()
-        itemSedangRame()
+        itemPromo()
         itemLarisManis()
         itemPop()
-        setHasOptionsMenu(true)
-        return view
+
+        return rootView
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        menu?.clear()
-        inflater?.inflate(R.menu.menu_main, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.action_search -> showDialog()
-            else -> {
-            }
-        }
-        return true
-    }
-
-    private fun allCategory() {
-        val itemCard = ArrayList<CategoriesModel>()
-
-        itemCard.add(CategoriesModel(R.drawable.fashion, "Fashion"))
-        itemCard.add(CategoriesModel(R.drawable.electronic, "Elektronik"))
-        itemCard.add(CategoriesModel(R.drawable.automotive, "Otomotif"))
-        itemCard.add(CategoriesModel(R.drawable.beauty, "Kecantikan & Kesehatan"))
-        itemCard.add(CategoriesModel(R.drawable.accesories, "Aksesoris"))
-        itemCard.add(CategoriesModel(R.drawable.house, "Peralatan rumah"))
-
-        recyCat?.adapter = CategoriesAdapter(itemCard) { partItemC: CategoriesModel -> partCategoryClicked(partItemC) }
-    }
-
-    private fun setDummy() {
-        imageItemList.add(BannerModel(0, "https://bit.ly/2MLykvh", "https://bit.ly/2MLykvh"))
-        imageItemList.add(BannerModel(1, "https://bit.ly/2Nmi7lb", "https://bit.ly/2Nmi7lb"))
-        imageItemList.add(BannerModel(2, "https://bit.ly/2xmz7xM", "https://bit.ly/2xmz7xM"))
-        imageItemList.add(BannerModel(3, "https://bit.ly/2NSGG8V", "https://bit.ly/2NSGG8V"))
-        imageItemList.add(BannerModel(4, "https://bit.ly/2pmcOUk", "https://bit.ly/2pmcOUk"))
-    }
-
-    private fun itemSedangRame() {
+    private fun itemPromo() {
         val allItemPromoHemat = ArrayList<ProductModel>()
 
         allItemPromoHemat.add(ProductModel("https://bit.ly/2NT059I", "https://bit.ly/2NqCTQI", "John doe", "Boneka Baymax White 35cm", "Rp 57.000"))
@@ -146,7 +69,7 @@ class HomeFragment : Fragment() {
         allItemPromoHemat.add(ProductModel("https://bit.ly/2QF9oZs", "https://bit.ly/2NqCTQI", "John doe", "Pulpen Gel Kokoro Zebra Colours", "Rp 3.800"))
         allItemPromoHemat.add(ProductModel("https://bit.ly/2xjpj7G", "https://bit.ly/2NqCTQI", "John doe", "Clean&Clear Cover & Correct BB cream 50ml", "Rp 130.000"))
         allItemPromoHemat.add(ProductModel("https://bit.ly/2NqD5iU", "https://bit.ly/2NqCTQI", "John doe", "Nanoblock Sagrada Familia", "Rp 224.925"))
-        recySedangRame?.adapter = ProductAdapter(allItemPromoHemat) { partItem: ProductModel -> partItemClicked(partItem) }
+        recyFavSaya?.adapter = ProductAdapter(allItemPromoHemat) { partItem: ProductModel -> partItemClicked(partItem) }
     }
 
     private fun itemLarisManis() {
@@ -162,7 +85,7 @@ class HomeFragment : Fragment() {
         allItemLarisManis.add(ProductModel("https://bit.ly/2DpXgsE", "https://images.pexels.com/users/avatars/135125/irina-kostenich-733.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "Ekstrak Albumin Ikan Gabus", "Rp 100.000"))
         allItemLarisManis.add(ProductModel("https://bit.ly/2O9xE7O", "https://images.pexels.com/users/avatars/135125/irina-kostenich-733.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "Bubuk buah zuriat 100gram", "Rp 60.000"))
         allItemLarisManis.add(ProductModel("https://bit.ly/2xjpgsw", "https://images.pexels.com/users/avatars/135125/irina-kostenich-733.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "JBL Flip 3 Splashproof Portable Bluetooth", "Rp 1.055.000"))
-        recyBanyakSuka?.adapter = ProductAdapter(allItemLarisManis) { partItem: ProductModel -> partItemClicked(partItem) }
+        recyTerakhirHub?.adapter = ProductAdapter(allItemLarisManis) { partItem: ProductModel -> partItemClicked(partItem) }
     }
 
     private fun itemPop() {
@@ -178,7 +101,7 @@ class HomeFragment : Fragment() {
         allItemPop.add(ProductModel("https://bit.ly/2Q0QA5X", "https://images.pexels.com/users/avatars/135125/irina-kostenich-733.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "Alibi Paris Notte Bag - T4611R1", "Rp 83.100"))
         allItemPop.add(ProductModel("https://bit.ly/2puuOvR", "https://images.pexels.com/users/avatars/135125/irina-kostenich-733.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "Lampu Depan LED Tyto M2A Philips", "Rp 55.000"))
         allItemPop.add(ProductModel("https://bit.ly/2puKOhB", "https://images.pexels.com/users/avatars/135125/irina-kostenich-733.jpeg?w=60&h=60&fit=crop&crop=faces", "John doe", "XPANDER SPOILER WARNA", "Rp 800.000"))
-        recyPop?.adapter = ProductAdapter(allItemPop) { partItem: ProductModel -> partItemClicked(partItem) }
+        recyBarusanKom?.adapter = ProductAdapter(allItemPop) { partItem: ProductModel -> partItemClicked(partItem) }
     }
 
     private fun partItemClicked(partItem: ProductModel) {
@@ -192,60 +115,4 @@ class HomeFragment : Fragment() {
         (context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
     }
 
-    private fun partCategoryClicked(partItemC: CategoriesModel) {
-        val intent = Intent(activity, CategoryActivity::class.java)
-        intent.putExtra("CATEGORY", partItemC.title)
-        startActivity(intent)
-        (context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
-    }
-
-    private fun setIndicator() {
-        dataCount = imageAdapter?.count!!
-        val dot: Array<ImageView?>?
-        dot = arrayOfNulls(dataCount)
-
-        for (i in 0 until dataCount) {
-            dot[i] = ImageView(activity)
-            dot[i]?.setImageResource(R.drawable.indicator_unselect)
-            val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-            params.setMargins(8, 0, 0, 0)
-            layIndicator?.addView(dot[i], params)
-        }
-        dot[0]?.setImageResource(R.drawable.indicator_select)
-        pagerView?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-
-            override fun onPageSelected(position: Int) {
-                for (i in 0 until dataCount) {
-                    dot[i]?.setImageResource(R.drawable.indicator_unselect)
-                }
-                dot[position]?.setImageResource(R.drawable.indicator_select)
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {}
-        })
-    }
-
-    private fun autoSwipeBanner() {
-        val handler = Handler()
-        val update = Runnable {
-            var currentPage = pagerView?.currentItem
-            if (currentPage == imageItemList.size - 1) {
-                currentPage = -1
-            }
-            if (currentPage != null) {
-                pagerView?.setCurrentItem(currentPage + 1, true)
-            }
-        }
-
-        val swipeTimer = Timer()
-        swipeTimer.schedule(object : TimerTask() {
-
-            override fun run() {
-                handler.post(update)
-            }
-        }, 5000, 10000)
-    }
-
-    private fun showDialog() {}
 }
