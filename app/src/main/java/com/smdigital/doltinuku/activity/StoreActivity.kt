@@ -78,7 +78,7 @@ class StoreActivity : AppCompatActivity() {
                 }
 
                 if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.title = "Saya Juragan"
+                    collapsingToolbar.title = "John doe"
                     isShow = true
                 } else if (isShow) {
                     collapsingToolbar.title = null

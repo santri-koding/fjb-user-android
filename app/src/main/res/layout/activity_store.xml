@@ -50,8 +50,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginTop="24dp"
                     android:src="@drawable/user2"
                     app:civ_border_color="@color/colorPrimaryTextDefaultMaterialLight"
@@ -119,15 +119,18 @@
                     android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="+62822-2419-2959"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
                     android:drawableStart="@drawable/ic_outline_perm_phone_msg"
                     android:drawablePadding="3dp"
+                    android:text="+62822-2419-2959"
                     android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+                    app:layout_constraintBottom_toBottomOf="@+id/view2"
                     app:layout_constraintEnd_toEndOf="@+id/textView14"
                     app:layout_constraintStart_toStartOf="@+id/textView13"
-                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView12"
+                    app:layout_constraintVertical_bias="0.0" />
 
             </android.support.constraint.ConstraintLayout>
 
