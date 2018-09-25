@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.smdigital.doltinuku.R
 import com.smdigital.doltinuku.activity.EditProfileActivity
+import com.smdigital.doltinuku.activity.LoginActivity
 import com.smdigital.doltinuku.adapter.SectionPagerAdapter
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
@@ -91,7 +92,7 @@ class ProfileFragment : Fragment(), PopupMenu.OnMenuItemClickListener {
                 return true
             }
             R.id.action_logout -> {
-                Toast.makeText(activity, "KELUAR", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(activity, LoginActivity::class.java))
                 return true
             }
             else -> return false
