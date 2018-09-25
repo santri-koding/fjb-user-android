@@ -22,6 +22,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="EditProfilTheme" parent="AppTheme.NoActionBar">
+        <item name="android:actionMenuTextColor">@color/colorFill</item>
+        <item name="actionMenuTextColor">@color/colorFill</item>
+    </style>
+
     <style name="ButtonBorder" parent="Widget.AppCompat.Button.Colored" />
 
     <style name="ButtonBorder.Accent">

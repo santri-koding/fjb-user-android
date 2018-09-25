@@ -11,6 +11,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Menu
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -37,10 +38,6 @@ class PostActivity : AppCompatActivity() {
         setContentView(R.layout.activity_post)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_outline_close)
 
@@ -195,22 +192,27 @@ class PostActivity : AppCompatActivity() {
     }
 
     private fun selectImage() {
-        val items = arrayOf<CharSequence>("Camera", "Gallery", "Cancel")
+        val items = arrayOf<CharSequence>("Kamera", "Galeri", "Batal")
         val builder = AlertDialog.Builder(this@PostActivity)
-        builder.setTitle("Add Image")
+        builder.setTitle("Upload image")
         builder.setItems(items) { dialogInterface, i ->
-            if (items[i] == "Camera") {
+            if (items[i] == "Kamera") {
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(intent, this.REQUEST_CAMERA!!)
-            } else if (items[i] == "Gallery") {
+            } else if (items[i] == "Galeri") {
                 val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                 intent.type = "image/*"
                 startActivityForResult(intent, this.SELECT_FILE!!)
-            } else if (items[i] == "Cancel") {
+            } else if (items[i] == "Batal") {
                 dialogInterface.dismiss()
             }
         }
         builder.show()
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_post, menu)
+        return true
     }
 }

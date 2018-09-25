@@ -10,8 +10,10 @@ import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v4.app.ActivityCompat
+import android.support.v4.view.MenuItemCompat
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.ShareActionProvider
 import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
 import android.util.Log
@@ -20,6 +22,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -46,6 +49,10 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private val MY_PERMISSIONS_REQUEST_CALL_PHONE = 1
     private var mTelephonyManager: TelephonyManager? = null
     private var mListener: MyPhoneCallListener? = null
+    private var mShareActionProvider: ShareActionProvider? = null
+
+    private var judul = String()
+    private var harga = String()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,9 +74,9 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
             Log.d(TAG, getString(R.string.telephony_not_enabled))
         }
 
-        val judul = intent.getStringExtra("JUDUL")
+        judul = intent.getStringExtra("JUDUL")
         val urlCover = intent.getStringExtra("COVER")
-        val harga = intent.getStringExtra("HARGA")
+        harga = intent.getStringExtra("HARGA")
         val poto = intent.getStringExtra("PROFILE")
         val user = intent.getStringExtra("USERNAME")
 
@@ -119,14 +126,49 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home)
+/*        if (item.itemId == android.R.id.home)
             onBackPressed()
+        return super.onOptionsItemSelected(item)*/
+        when (item.itemId){
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+            R.id.action_favorit -> {
+                Toast.makeText(this, "DI FAVORITKAN", Toast.LENGTH_LONG).show()
+                return true
+            }
+            R.id.action_share -> {
+                mShareActionProvider = MenuItemCompat.getActionProvider(item) as? ShareActionProvider
+                setShareIntent(createShareIntent())
+                return true
+            }
+            R.id.action_report -> {
+                Toast.makeText(this, "LAPORKAN BARANG", Toast.LENGTH_LONG).show()
+                return true
+            }
+        }
         return super.onOptionsItemSelected(item)
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
         overridePendingTransition(R.anim.fade_forward, R.anim.slide_out_right)
+    }
+
+    private fun setShareIntent(shareIntent: Intent) {
+        if (mShareActionProvider != null) {
+            mShareActionProvider!!.setShareIntent(shareIntent)
+        }
+    }
+
+    private fun createShareIntent(): Intent {
+        val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, title)
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, judul)
+        startActivity(Intent.createChooser(sharingIntent, "Bagikan melalui?"))
+        return sharingIntent
     }
 
     private fun setBar() {
@@ -231,7 +273,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    private fun sendMessage(noPhone: String, title: String){
+    private fun sendMessage(noPhone: String, title: String) {
         val smsNumber = String.format("smsto: %s", noPhone)
         val smsIntent = Intent(Intent.ACTION_SENDTO)
         smsIntent.data = Uri.parse(smsNumber)

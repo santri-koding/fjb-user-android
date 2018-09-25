@@ -1,7 +1,9 @@
 package com.smdigital.doltinuku.activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
@@ -10,8 +12,13 @@ import com.smdigital.doltinuku.R
 import com.smdigital.doltinuku.adapter.AllCategoriesAdapter
 import com.smdigital.doltinuku.model.ProductModel
 import kotlinx.android.synthetic.main.activity_category.*
+import android.widget.Toast
+
+
 
 class CategoryActivity : AppCompatActivity() {
+
+    internal val items = arrayOf<CharSequence>("Terbaru", "Terlama", "Harga rendah ke tinggi", "Harga tinggi ke rendah")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +64,19 @@ class CategoryActivity : AppCompatActivity() {
         overridePendingTransition(R.anim.slide_in_right, R.anim.fade_back)
     }
 
+    fun dialog() {
+        val alt_bld = AlertDialog.Builder(this)
+        //alt_bld.setIcon(R.drawable.icon);
+        alt_bld.setTitle("Urutkan berdasarkan:")
+        alt_bld.setSingleChoiceItems(items, -1) { dialog, item ->
+            Toast.makeText(applicationContext,
+                    "Group Name = " + items[item], Toast.LENGTH_SHORT).show()
+            dialog.dismiss()// dismiss the alertbox after chose option
+        }
+        val alert = alt_bld.create()
+        alert.show()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_sort_category, menu)
@@ -68,9 +88,8 @@ class CategoryActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        return when (item.itemId) {
-            R.id.action_sort -> true
-            else -> super.onOptionsItemSelected(item)
-        }
+        if (item.itemId == R.id.action_sort)
+            dialog()
+        return super.onOptionsItemSelected(item)
     }
 }

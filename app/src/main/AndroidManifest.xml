@@ -74,6 +74,7 @@
         <activity
             android:name=".activity.PostActivity"
             android:label="@string/title_activity_post"
+            android:theme="@style/EditProfilTheme"
             android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -92,7 +93,8 @@
             android:label="@string/title_activity_store" />
         <activity
             android:name=".activity.EditProfileActivity"
-            android:label="@string/title_activity_edit_profile"/>
+            android:label="@string/title_activity_edit_profile"
+            android:theme="@style/EditProfilTheme"/>
     </application>
 
 </manifest>
